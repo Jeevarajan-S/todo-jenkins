@@ -23,16 +23,16 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t todo-jenkins:latest .'
+                bat '"C:\\Users\\HP\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t todo-jenkins:latest .'
             }
         }
 
         stage('Deploy') {
             steps {
                 bat '''
-                    docker stop todo-app 2>nul || exit /b 0
-                    docker rm todo-app 2>nul || exit /b 0
-                    docker run -d --name todo-app -p 3000:3000 todo-jenkins:latest
+                    "C:\\Users\\HP\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop todo-app 2>nul || exit /b 0
+                    "C:\\Users\\HP\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm todo-app 2>nul || exit /b 0
+                    "C:\\Users\\HP\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name todo-app -p 3000:3000 todo-jenkins:latest
                 '''
             }
         }
@@ -50,7 +50,10 @@ pipeline {
         }
 
         success {
+            bat 'echo ========================================'
             bat 'echo Deployment successful!'
+            bat 'echo Application: http://localhost:3000'
+            bat 'echo ========================================'
         }
 
         failure {
