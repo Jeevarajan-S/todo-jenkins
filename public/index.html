@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A simple To-Do List app deployed with Docker and Jenkins." />
+  <title>To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="sheet">
+    <header class="header">
+      <h1 class="title">To-Do List</h1>
+      <p class="summary" id="summary" aria-live="polite">0 tasks left</p>
+      <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    </header>
+
+    <form class="add-form" id="add-form" autocomplete="off">
+      <label for="new-task" class="visually-hidden">New task</label>
+      <input id="new-task" type="text" maxlength="200" placeholder="What needs to be done?" required />
+      <button type="submit" class="btn btn-primary">Add task</button>
+    </form>
+
+    <p class="error" id="error" role="alert" hidden></p>
+
+    <nav class="filters" aria-label="Filter tasks">
+      <button type="button" class="filter active" data-filter="all" aria-pressed="true">All <span id="count-all">0</span></button>
+      <button type="button" class="filter" data-filter="pending" aria-pressed="false">Pending <span id="count-pending">0</span></button>
+      <button type="button" class="filter" data-filter="completed" aria-pressed="false">Completed <span id="count-completed">0</span></button>
+    </nav>
+
+    <ul class="task-list" id="task-list"></ul>
+
+    <p class="empty" id="empty">No tasks yet. Add your first one above.</p>
+
+    <footer class="footer">
+      <button type="button" class="btn btn-link" id="clear-completed" disabled>Clear completed</button>
+      <span class="version" id="version"></span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

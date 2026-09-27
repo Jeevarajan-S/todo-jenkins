@@ -1,0 +1,17 @@
+# Keep the Docker build context small and free of secrets
+node_modules
+npm-debug.log*
+tests
+coverage
+.git
+.gitignore
+.dockerignore
+Dockerfile
+Jenkinsfile
+README.md
+.env
+.env.*
+.vscode
+.idea
+*.log
+.DS_Store

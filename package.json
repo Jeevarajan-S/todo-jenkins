@@ -1,0 +1,19 @@
+{
+  "name": "todo-jenkins",
+  "version": "1.0.0",
+  "description": "Simple To-Do List app (Node.js + Express) with Docker and a Jenkins CI/CD pipeline",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/app.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["todo", "express", "docker", "jenkins", "devops", "ci-cd"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
